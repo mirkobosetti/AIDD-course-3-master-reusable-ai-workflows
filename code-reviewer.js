@@ -88,7 +88,11 @@ Focus on issues that would improve code quality, performance, or prevent bugs.`;
 
 // CLI interface
 async function main() {
+  console.log('🚀 Starting main function...');
+  
   const filename = process.argv[2];
+  console.log('📁 Arguments:', process.argv);
+  console.log('📄 Filename:', filename);
 
   if (!filename) {
     console.log('Usage: node code-reviewer.js <filename>');
@@ -102,6 +106,14 @@ async function main() {
   }
 
   console.log(`🔍 Reviewing ${filename}...`);
+
+  // Check if OPENAI_API_KEY is set
+  if (!process.env.OPENAI_API_KEY) {
+    console.error('❌ Error: OPENAI_API_KEY environment variable is not set');
+    console.error('Please create a .env file with your OpenAI API key:');
+    console.error('OPENAI_API_KEY=your_api_key_here');
+    process.exit(1);
+  }
 
   const reviewer = new CodeReviewer();
   const result = await reviewer.reviewFile(filename);
@@ -121,10 +133,9 @@ async function main() {
 }
 
 // Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] === decodeURIComponent(new URL(import.meta.url).pathname)) {
   main().catch(console.error);
 }
-
 
 export { CodeReviewer };
 
