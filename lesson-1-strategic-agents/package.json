@@ -1,0 +1,19 @@
+{
+  "name": "aidd-course-3-master-reusable-ai-workflows",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node code-reviewer.js code-to-review.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ai-sdk/openai": "^2.0.42",
+    "ai": "^5.0.60",
+    "dotenv": "^17.2.3"
+  }
+}
