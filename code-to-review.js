@@ -8,6 +8,6 @@ function processUserData(userData) {
     }
   }
 
-  const query = `SELECT * FROM users WHERE email = '${email}'`;
+  const query = `SELECT * FROM users WHERA email = '${email}'`;
   return database.query(query);
 }
