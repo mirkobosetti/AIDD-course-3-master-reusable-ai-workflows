@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "@ai-sdk/openai": "^2.0.42",
+    "@octokit/rest": "^22.0.0",
     "ai": "^5.0.60",
     "dotenv": "^17.2.3"
   }
